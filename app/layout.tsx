@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Jost } from "next/font/google";
+import localFont from "next/font/local";
 import { site } from "@/lib/data";
 import "./globals.css";
 
-const jost = Jost({
+// Self-hosted (latin subset, variable weight) instead of next/font/google: Google
+// sometimes serves Inter Tight as a `/l/font?kit=…&skey=…` URL, which next/font
+// can't parse in dev ("next/font/google queries have exactly one entry").
+const jost = localFont({
   variable: "--font-jost",
-  subsets: ["latin"],
-  weight: ["300", "400"],
-  style: ["normal", "italic"],
+  src: [
+    { path: "./fonts/Jost-latin-wght.woff2", weight: "300 400", style: "normal" },
+    { path: "./fonts/Jost-latin-wght-italic.woff2", weight: "300 400", style: "italic" },
+  ],
 });
 
-const interTight = Inter_Tight({
+const interTight = localFont({
   variable: "--font-inter-tight",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  src: [{ path: "./fonts/InterTight-latin-wght.woff2", weight: "400 500", style: "normal" }],
 });
 
 export const metadata: Metadata = {

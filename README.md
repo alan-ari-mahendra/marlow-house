@@ -7,7 +7,7 @@ Reference prototype: `docs/marlow-B-clean-img.html`.
 ## Stack
 
 - Next.js 16 App Router, TypeScript, Tailwind CSS v4 (tokens in `app/globals.css` `@theme`)
-- Fonts via `next/font/google`: Jost 300/400 (display), Inter Tight 400/500 (body)
+- Fonts via `next/font/local`, self-hosted in `app/fonts` (latin, variable): Jost 300–400 + italic (display), Inter Tight 400–500 (body). Not `next/font/google`: Google sometimes serves Inter Tight as a `/l/font?kit=…&skey=…` URL that next/font fails to parse in dev.
 - Static output, no backend
 
 ```bash
